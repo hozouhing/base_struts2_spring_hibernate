@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 必要的文件 --> 
+<link rel="stylesheet" type="text/css" href="../resource/uploadify/uploadify.css" />
+<script type="text/javascript" src="../resource/jQuery/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../resource/uploadify/jquery.uploadify.min.js"></script>
+<!-- 必要的文件 --> 
+ <script type="text/javascript">
+ $(document).ready(function(){
+		
+	 	$(function() {
+				$('#upload').uploadify({
+					'swf' : '../resource/uploadify/uploadify.swf',//flash位置（必须）
+					'buttonText' : '选择文件',//按钮显示的名字
+					'uploader' : 'testUpload.action',//后台处理url
+					'removeTimeout':0,//上传完成后，进度条的存在时间
+					'fileObjName':'file',//与action或者controller中的依赖注入属性一致
+					'fileTypeExts' : '*.gif; *.jpg; *.png;*.txt',//允许上传的文件类型列表
+					'auto':false,//是否自动上传
+					'formData':{},//表单
+					'uploadLimit' : 1//每次最多上传的文件个数
+				});
+			});
+			
+		$('#submitUpload').click(function() {
+				$('#upload').uploadify('upload','*');
+			})
+	
+ });
+	</script>
+</head>
+<body>
+
+<input type="file" id="upload" />
+
+<input type="button" id="submitUpload" value="上传">
+
+</body>
+</html>

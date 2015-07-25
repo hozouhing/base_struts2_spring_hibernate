@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../resource/jQuery/jquery-1.9.1.min.js"></script>
+<script src="../resource/jquery-validation-1.13.1/dist/jquery.validate.min.js"></script>
+<!--引入自定义的中文error提示  -->
+<script src="../resource/jquery-validation-1.13.1/message-chn.js"></script>
+ <script type="text/javascript">
+$(document).ready(function() {
+ 	$("#signupForm").validate();
+ 	//设置检查的场景，每输入一个字符检查一次
+ 	$('#name').validate({
+ 		onkeyup:true
+ 	});
+});
+</script>
+</head>
+<body>
+<form id='signupForm'>
+
+<input type='text' required='true' minlength='2' maxlength='4' id='name'/>
+<input type='submit'>
+</form>
+
+
+</body>
